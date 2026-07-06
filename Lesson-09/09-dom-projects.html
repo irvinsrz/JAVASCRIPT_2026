@@ -9,10 +9,44 @@
 
   <body>
     <p>Youtube Subscribe Button</p>
-    <button>Subscribe</button>
+    <button onclick="
+      subscribe();
+      "class="js-subscribe-button">
+      Subscribe
+    </button>
+
+     <p>Amazon Shipping Calculator</p>
+     <p>Orders under 40$ = +$10 shipping.</p>
+     <p>Orders over 50$ = FREE shipping.</p>
+
+     <input placeholder="Cost of order" class="js-cost-input">
+     <button onclick="
+      calculateTotal();
+     ">Calculate</button>
+     <p class="js-total-cost"></p>
 
     <script>
-     
+      function calculateTotal(){
+        const inputElement = document.querySelector('.js-cost-input')
+        const cost = Number(inputElement.value)
+
+        if (cost < 40){
+          cost+= 10;
+        }
+
+        document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+      }
+
+      function subscribe(){
+        const buttonElement = document.querySelector('.js-subscribe-button');
+          if (buttonElement.innerText === 'Subscribe'){
+            buttonElement.innerHTML = 'Subscribed';
+          }else {
+            buttonElement.innerHTML = 'Subscribe';
+          }
+      }
+
+      
     </script>
   </body>
 </html>
